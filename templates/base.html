@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+        <title>
+            Cody
+        </title>
+        <link href="{{ url_for('static', filename='css/toastify.min.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/sanitize.min.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/tomorrow-night-bright.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/jp.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/pdoc.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/loader.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/autocomplete.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet"/>
+        <script src="{{ url_for('static', filename='js/highlight.pack.js') }}">
+        </script>
+        <script src="{{ url_for('static', filename='js/autocomplete.js') }}">
+        </script>
+    </meta>
+</head>
+<body>
+    <div class="box" id="loader">
+        <div class="card1">
+        </div>
+        <div class="card2">
+        </div>
+        <div class="card3">
+        </div>
+    </div>
+    <div id="mybutton">
+        <div class="search-box">
+            <input id="search-input" placeholder="Press Enter" type="text" spellcheck="false" />
+        </div>
+        <div class="User-area">
+            <button class="feedback" id="FileMenu">
+                File
+            </button>
+            <ul class="User-Dropdown">
+                <li id="upload-file-btn">
+                    <input hidden="" id="upload-file" name="" type="file">
+                        Open
+                    </input>
+                </li>
+                <li id="analyze" style="display: none;">
+                    Analyze
+                </li>
+                <li id="view" style="display: none;">
+                    View
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="app">
+    </div>
+    <script src="{{ url_for('static', filename='js/toastify-js.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename='js/base.js') }}">
+    </script>
+    <script type="text/javascript">
+        function enterSearch(text){
+            searchBar.value = text
+            search()            
+        }
+
+
+        pack = '{{data}}'.split(",")
+    for (i in pack){
+        s_sugg.push({label:pack[i].replace(".html", "")})
+    }
+    document.getElementById('upload-file-btn').onclick = function(){
+document.getElementById('upload-file').click()}
+
+
+
+
+
+autocomplete({
+    input: searchBar,
+    fetch: function(text, update) {
+        text = text.toLowerCase();
+        // you can also use AJAX requests instead of preloaded data
+        var suggestions = s_sugg.filter(n => n.label.toLowerCase().includes(text))
+        update(suggestions);
+    },
+    onSelect: function(item) {
+        searchBar.value = item.label;
+        search()
+    }
+});
+    </script>
+</body>

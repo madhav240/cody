@@ -1,0 +1,32 @@
+
+.autocomplete {
+    z-index: 1000;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 1px solid rgba(50, 50, 50, 0.6);
+    background-color: black
+}
+
+
+.autocomplete .group {
+    font-size: 14px;
+    border-bottom: #fff4f4bd 1px solid
+}
+
+.autocomplete * {
+    font-size: 13px;
+    font-family: Menlo,Consolas,"Roboto Mono","Ubuntu Monospace","Noto Mono","Oxygen Mono","Liberation Mono",monospace,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+
+.autocomplete > div {
+    padding: 0 4px;
+}
+
+
+.autocomplete > div:hover:not(.group),
+.autocomplete > div.selected {
+    background: #53408e;
+    cursor: pointer;
+}
+
